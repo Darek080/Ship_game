@@ -1,8 +1,8 @@
-
 import java.util.Scanner;
 
 public class Check {
-    static boolean CheckInput(String[] position) {
+    static boolean checkInput(String[] position) {
+        //      check player input
         String[] y = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"};
         boolean[] checked = new boolean[2];
         try {
@@ -16,20 +16,21 @@ public class Check {
             }
         } catch (Exception e) {
         } finally {
-            if (checked[0] && checked[1]) {
+            if (checked[0] & checked[1]) {
                 return true;
             } else {
-                System.out.println("Wrong choice");
+                System.out.println("Choice out of map");
                 return false;
             }
         }
     }
 
-    static boolean CheckPosition(String[][] map, int[] position, int placed, int shipSize) {
+    static boolean checkPosition(String[][] map, int[] position, int placed, int shipSize) {
+        //      checking the field is empty
         try {
             if (placed == 1) {
                 for (int i = 0; i < shipSize; i++) {
-                    if (map[position[0] + i][position[1] - 1].equals("V|")) {
+                    if (map[position[0] + i][position[1]].equals("V|")) {
                         System.out.println(" There is another ship ");
                         return false;
                     }
@@ -50,6 +51,7 @@ public class Check {
     }
 
     static boolean checkShipMap(String[][] map) {
+        //      checking the player still has ships
         int y, x;
         for (y = 0; y < 10; y++) {
             for (x = 0; x < 10; x++) {
@@ -61,7 +63,7 @@ public class Check {
         return false;
     }
 
-    static boolean Restart() {
+    static boolean restart() {
         while (true) {
             Scanner obj = new Scanner(System.in);
             System.out.println("Do you want play again (y/n)");

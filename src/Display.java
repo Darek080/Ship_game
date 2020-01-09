@@ -1,11 +1,10 @@
-import java.io.IOException;
 import java.util.Scanner;
 
 class Display {
 
 
     static void printMap(String[][] maps) {
-
+        //      printing map
         String[] y = {"A |", "B |", "C |", "D |", "E |", "F |", "G |", "H |", "I |", "J |", "K |"};
         System.out.println("   1 2 3 4 5 6 7 8 9 10");
         System.out.println("   ____________________");
@@ -21,6 +20,7 @@ class Display {
     }
 
     static int selectPlaced() {
+        //      select vertical or horizontal
         while (true) {
             System.out.println("1-> vertical\n" + "2->horizontal");
             Scanner obj = new Scanner(System.in);
@@ -39,6 +39,7 @@ class Display {
     }
 
     static int[] convertY(String[] position) {
+        //      convert input letter to number
         String[] y = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"};
         int Y;
         int X;
@@ -52,13 +53,8 @@ class Display {
         }
     }
 
-//    static void CLS() {
-//        try {
-//            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    static void displaySpace(){
+        for(int i=0; i<=50; i++)
+            System.out.println("\n");
+    }
 }
